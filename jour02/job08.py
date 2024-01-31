@@ -67,25 +67,33 @@ class Directeur:
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
+    def read_animal(self):
+        query = "SELECT * FROM animal"
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+
 
 
 directeur = Directeur(host="localhost", user="root", password="", database="zoo")
 
 # Créer un animal
 # print(directeur.create_animal(nom="Pluto", race="Singe", id_cage=2, naissance="2023-01-01", origine="Kenya"))
-
+# print(directeur.create_animal(nom="Mickey", race="Elephant", id_cage=1, naissance="2019-01-01", origine="Kenya"))
+# print(directeur.create_animal(nom="Luce", race="Lion", id_cage=3, naissance="2020-01-01", origine="Maroc"))
+# print(directeur.create_animal(nom="Juste", race="Lion", id_cage=3, naissance="2018-01-01", origine="Maroc"))
+# print(directeur.create_animal(nom="George", race="Gorille", id_cage=3, naissance="2017-01-01", origine="Kenya"))
 
 # Créer une cage
-# print(directeur.create_cage(quantite=5, superficie=50, capacite_max=10))
+# print(directeur.create_cage(quantite=1, superficie=50, capacite_max=10))
+# print(directeur.create_cage(quantite=1, superficie=100, capacite_max=20))
+# print(directeur.create_cage(quantite=3, superficie=150, capacite_max=30))
 
 # Mettre à jour la cage d'un animal
-print(directeur.update_animal(id_cage=3, nom="Pluto"))
+# print(directeur.update_animal(id_cage=23, nom="George"))
 
-# Mettre à jour la quantité d'une cage
-print(directeur.update_cage(id=1, quantite=8))
 
-# Obtenir le total d'animaux dans toutes les cages
-print("Total d'animaux dans toutes les cages:", directeur.total_animaux())
+print(directeur.read_animal())
+
 
 # Obtenir la liste des animaux et le nombre d'animaux dans chaque cage
 print("Liste des animaux dans chaque cage:", directeur.liste_en_cage())
@@ -94,9 +102,9 @@ print("Liste des animaux dans chaque cage:", directeur.liste_en_cage())
 print("Superficie totale de toutes les cages:", directeur.superficie_totale())
 
 
-print(directeur.delete_cage(20))
-print(directeur.delete_animal(12))
-# Fermer la connexion à la base de données
+# print(directeur.delete_cage(20))
+# print(directeur.delete_animal(12))
+
 directeur.cursor.close()
 directeur.db.close()
 
