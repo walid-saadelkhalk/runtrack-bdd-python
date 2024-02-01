@@ -75,7 +75,7 @@ class Employe:
         self.cursor.close()
         self.db.close()
 
-employe_manager = Employe("localhost", "root", "SYoccMwwade13+", "entreprise")
+employe_manager = Employe("localhost", "root", "", "entreprise")
 
 print(employe_manager.create_employe("Vanni", "Barbara", 1, 3))
 print(employe_manager.create_employe("Mido", "Ban", 1000, 3))
